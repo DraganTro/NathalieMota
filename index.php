@@ -1,6 +1,5 @@
-<?php get_header() ?>
+<?php get_header(); ?>
 
-Ici votre contenu
+    <!-- Ajoutez le contenu de la page d'accueil ici -->
 
-<?php get_footer() ?>
-
+<?php get_footer(); ?>

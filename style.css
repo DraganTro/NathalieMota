@@ -1,23 +1,68 @@
 /*
-Theme Name: Nathalie Mota perso
-Theme URI: 
+Theme Name: Nathalie Mota
 Author: Dragan Trojanovic
 Description: Thème personnalisé Nathalie Mota
 Version: 1.0
 */
 
 
-.site-header {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-gap: 20px;
-    align-items: center;
-  }
+header {
+    background-color: #fff;
+}
 
-  .site-branding {
-    justify-self: start;
-  }
+.row-header {
+    display: flex;
+    justify-content: space-between;
+}
 
-  .main-navigation {
-    justify-self: end;
-  }
+.logo {
+    margin-left: 5em;
+    margin-top: 2em;
+}
+
+header img {
+    max-width: 100%;
+}
+
+.primary-menu {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    margin-top: 2em;
+}
+
+.primary-menu li {
+    margin-right: 5em;
+}
+
+.primary-menu a {
+    text-decoration: none;
+    color: #333;
+}
+
+@media (max-width: 767px) {
+    .primary-menu {
+        justify-content: center;
+    }
+
+    .primary-menu li {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .row-header {
+        flex-direction: column;
+    }
+}
+
+.footer-menu {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    
+}
+
+.footer-menu li a {
+    text-decoration: none;
+    color: #333;
+}
