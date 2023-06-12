@@ -1,0 +1,23 @@
+/*
+Theme Name: Nathalie Mota perso
+Theme URI: 
+Author: Dragan Trojanovic
+Description: Thème personnalisé Nathalie Mota
+Version: 1.0
+*/
+
+
+.site-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-gap: 20px;
+    align-items: center;
+  }
+
+  .site-branding {
+    justify-self: start;
+  }
+
+  .main-navigation {
+    justify-self: end;
+  }
