@@ -34,6 +34,41 @@ function wp_enqueue_custom_fonts() {
 }
 add_action( 'wp_enqueue_scripts', 'wp_enqueue_custom_fonts' );
 
+// Ajout de la fonctionnalité "Image à la une"
+add_theme_support( 'post-thumbnails' );
+
+
+
+
+function load_more_photos() {
+  $offset = $_POST['offset'];
+  $args = array(
+    'post_type' => 'photos',
+    'posts_per_page' => 8,
+    'offset' => $offset,
+  );
+  $query = new WP_Query( $args );
+  if ( $query->have_posts() ) :
+    while ( $query->have_posts() ) : $query->the_post();
+      get_template_part( 'templates_part/photo-block' );
+    endwhile;
+  endif;
+  wp_reset_postdata();
+  die();
+}
+add_action( 'wp_ajax_load_more_photos', 'load_more_photos' );
+add_action( 'wp_ajax_nopriv_load_more_photos', 'load_more_photos' );
+
+
+
+function my_theme_enqueue_scripts() {
+  wp_enqueue_script( 'my-script', get_template_directory_uri() . '/path/to/your/script.js', array( 'jquery' ), '1.0.0', true );
+  wp_localize_script( 'my-script', 'my_script_vars', array(
+    'ajaxurl' => admin_url( 'admin-ajax.php' ),
+  ) );
+}
+add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_scripts' );
+
 
 ?>
 

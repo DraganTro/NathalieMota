@@ -4,6 +4,7 @@
 
         <!-- Ajoutez le contenu de la page individuelle ici -->
 
+        
     <?php endwhile; endif; ?>
 
 <?php get_footer(); ?>
