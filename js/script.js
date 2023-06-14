@@ -22,18 +22,6 @@ window.onclick = function(event) {
   }
 }
 
-jQuery(document).ready(function($) {
-  // Ouvrir la popup au clic sur le bouton "Contact"
-  $('.contact-button').click(function() {
-    $('.popup').show();
-
-    // Pré-remplir automatiquement le champ "RÉF. PHOTO" avec la référence de la photo
-    var ref = $(this).data('ref');
-    $('.popup input[name="REF. PHOTO"]').val(ref);
-  });
-});
-
-
 
 jQuery(document).ready(function($) {
   var offset = 8;

@@ -2,6 +2,12 @@
 
 function nathalie_mota_scripts() {
   wp_enqueue_style( 'style', get_stylesheet_uri() );
+
+  // condition pour charger le fichier style-single.css uniquement sur la page single.php
+  if ( is_single() ) {
+    wp_enqueue_style( 'style-single', get_template_directory_uri() . '/style-single.css' );
+  }
+
   wp_enqueue_script( 'jquery' ); 
   wp_enqueue_script( 'script', get_template_directory_uri() . '/js/script.js', array( 'jquery' ), '1.0.0', true ); 
 }
@@ -62,7 +68,7 @@ add_action( 'wp_ajax_nopriv_load_more_photos', 'load_more_photos' );
 
 
 function my_theme_enqueue_scripts() {
-  wp_enqueue_script( 'my-script', get_template_directory_uri() . '/path/to/your/script.js', array( 'jquery' ), '1.0.0', true );
+  wp_enqueue_script( 'my-script', get_template_directory_uri() . '/js/script.js', array( 'jquery' ), '1.0.0', true );
   wp_localize_script( 'my-script', 'my_script_vars', array(
     'ajaxurl' => admin_url( 'admin-ajax.php' ),
   ) );

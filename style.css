@@ -184,6 +184,12 @@ header img {
   grid-gap: 16px;
 }
 
+.photo-catalog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .photo-block {
   position: relative;
 }
@@ -245,11 +251,15 @@ header img {
 /* Styles pour les filtres */
 .filters {
   margin-bottom: 16px;
+  margin-top: 16px;
+  display: flex;
+  width: 81%;
 }
 
 .filters label {
   display: block;
   margin-bottom: 8px;
+  margin-right: 1em;
 }
 
 .filters select {
