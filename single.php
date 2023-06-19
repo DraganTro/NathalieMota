@@ -1,29 +1,54 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Template pour l'affichage d'un article
+ */
 
-<div class="photo-info-container">
-  <div class="photo-info-left">
-    <h1><?php the_title(); ?></h1>
-    <p>Référence : <?php the_field('reference'); ?></p>
-    <p>Catégorie : <?php echo get_the_term_list( get_the_ID(), 'categorie', '', ', ' ); ?></p>
-    <p>Format : <?php echo get_the_term_list( get_the_ID(), 'format', '', ', ' ); ?></p>
-    <p>Année : <?php the_field('annee'); ?></p>
-    <button id="contactBtn" data-photo-ref="<?php the_field('reference'); ?>">Contact</button>
-  </div>
-  <div class="photo-info-right">
-    <?php the_post_thumbnail('full'); ?>
-    <a class="fullscreen-link" href="<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>" data-lightbox="photo">Plein écran</a>
-  </div>
-  <div class="photo-info-nav">
-    <div class="photo-info-nav-prev">
-      <?php previous_post_link('%link', '<span class="nav-arrow">&lt;</span> Précédent', TRUE, '', 'format'); ?>
-    </div>
-    <div class="photo-info-nav-next">
-      <?php next_post_link('%link', 'Suivant <span class="nav-arrow">&gt;</span>', TRUE, '', 'format'); ?>
-    </div>
-  </div>
-</div>
+get_header(); // inclus le fichier header.php de votre thème
 
-<?php get_template_part('templates_part/modal-contact'); ?>
+// Boucle WordPress pour afficher le contenu de l'article
+if ( have_posts() ) :
+  while ( have_posts() ) : the_post();
+    ?>
+    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+      <header class="entry-header">
+        <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+        <div class="entry-meta">
+          <?php
+            printf(
+              esc_html__( 'Publié le %s à %s', 'textdomain' ),
+              get_the_date(),
+              get_the_time()
+            );
+          ?>
+        </div><!-- .entry-meta -->
+      </header><!-- .entry-header -->
 
-<?php get_footer(); ?>
+      <?php if ( has_post_thumbnail() ) : ?>
+        <div class="post-thumbnail">
+          <?php the_post_thumbnail(); ?>
+        </div><!-- .post-thumbnail -->
+      <?php endif; ?>
+
+      <div class="entry-content">
+        <?php the_content(); ?>
+
+        <?php
+          wp_link_pages( array(
+            'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'textdomain' ),
+            'after'  => '</div>',
+          ) );
+        ?>
+      </div><!-- .entry-content -->
+
+      <?php if ( comments_open() || get_comments_number() ) : ?>
+        <div class="comments-area">
+          <?php comments_template(); ?>
+        </div><!-- .comments-area -->
+      <?php endif; ?>
+    </article><!-- #post-<?php the_ID(); ?> -->
+    <?php
+  endwhile;
+endif;
+
+get_footer(); // inclus le fichier footer.php de votre thème
 

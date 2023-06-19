@@ -43,14 +43,12 @@ add_action( 'wp_enqueue_scripts', 'wp_enqueue_custom_fonts' );
 // Ajout de la fonctionnalité "Image à la une"
 add_theme_support( 'post-thumbnails' );
 
-
-
-
+// Fonction charger plus
 function load_more_photos() {
   $offset = $_POST['offset'];
   $args = array(
     'post_type' => 'photos',
-    'posts_per_page' => 8,
+    'posts_per_page' => 12,
     'offset' => $offset,
   );
   $query = new WP_Query( $args );
@@ -75,6 +73,18 @@ function my_theme_enqueue_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_scripts' );
 
+// Ajout d'un filtre pour utiliser le fichier single-photo.php
+add_filter('template_include', 'custom_single_template');
+
+function custom_single_template($template) {
+    if (is_singular('photos')) {
+        $new_template = locate_template(array('single-photo.php'));
+        if ('' != $new_template) {
+            return $new_template;
+        }
+    }
+    return $template;
+}
 
 ?>
 

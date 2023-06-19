@@ -22,9 +22,9 @@ window.onclick = function(event) {
   }
 }
 
-
+// Fonction charger plus
 jQuery(document).ready(function($) {
-  var offset = 8;
+  var offset = 12;
   $('#load-more').click(function() {
     $.ajax({
       url: my_script_vars.ajaxurl,
@@ -35,7 +35,7 @@ jQuery(document).ready(function($) {
       },
       success: function(response) {
         $('.photo-grid').append(response);
-        offset += 8;
+        offset += 12;
       }
     });
   });
