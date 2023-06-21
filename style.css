@@ -79,15 +79,19 @@ header img {
 
 /* Style Footer */
 .footer-menu {
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-    
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
 }
 
 .footer-menu li a {
-    text-decoration: none;
-    color: #333;
+  text-decoration: none;
+  color: #333;
+}
+
+.container-footer {
+  height: 3vw;
+  border-top: #333 1px solid;
 }
 
 /* La modale */
@@ -199,9 +203,10 @@ header img {
   list-style: none;
   margin: 0 9vw;
 }
+
 .photo {
   position: relative;
-  height: 40vw;
+  height: 35vw;
   overflow: hidden;
   
 }
