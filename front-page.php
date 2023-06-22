@@ -7,10 +7,18 @@ get_header();
 ?>
 
 <section class="hero">
-  <?php $hero_image = get_field('photos'); ?>
-  <?php if ($hero_image) : ?>
-    <img src="<?php echo esc_url($hero_image['url']); ?>" alt="<?php echo esc_attr($hero_image['alt']); ?>">
-  <?php endif; ?>
+    <div class="hero-photo">
+        <?php
+        $featured_image_url = get_random_catalog_image_url();
+
+        if ( $featured_image_url ) {
+            ?>
+            <img src="<?php echo esc_url( $featured_image_url ); ?>" alt="Featured Image">
+            <?php
+        }
+        ?>
+    </div>
+    <h1 class="hero-title">Photographe event</h1>
 </section>
 
 <section class="photo-catalog">

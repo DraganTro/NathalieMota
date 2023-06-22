@@ -86,5 +86,29 @@ function custom_single_template($template) {
     return $template;
 }
 
+// Fonction image aléatoire du Hero
+function get_random_catalog_image_url() {
+  $args = array(
+      'post_type' => 'photos',
+      'posts_per_page' => 1,
+      'orderby' => 'rand',
+  );
+  
+  $query = new WP_Query( $args );
+  
+  if ( $query->have_posts() ) {
+      while ( $query->have_posts() ) {
+          $query->the_post();
+          $featured_image_url = get_the_post_thumbnail_url();
+      }
+      wp_reset_postdata();
+      
+      return $featured_image_url;
+  } else {
+      return false;
+  }
+}
+
+
 ?>
 
