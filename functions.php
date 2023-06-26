@@ -109,6 +109,56 @@ function get_random_catalog_image_url() {
   }
 }
 
+// Fonction pour récupérer les résultats filtrés et triés de l'API WordPress avec Ajax
+add_action('wp_ajax_filter_photos', 'filter_photos');
+add_action('wp_ajax_nopriv_filter_photos', 'filter_photos');
+
+function filter_photos() {
+  $category = $_POST['category'];
+  $format = $_POST['format'];
+  $sortOrder = $_POST['sortOrder'];
+
+  $args = array(
+    'post_type' => 'photos',
+    'posts_per_page' => 12,
+    'tax_query' => array(),
+    'meta_query' => array(),
+    'orderby' => 'date',
+    'order' => $sortOrder
+  );
+
+  if ($category) {
+    $args['tax_query'][] = array(
+      'taxonomy' => 'categorie',
+      'field' => 'slug',
+      'terms' => $category
+    );
+  }
+
+  if ($format) {
+    $args['tax_query'][] = array(
+      'taxonomy' => 'format',
+      'field' => 'slug',
+      'terms' => $format
+    );
+  }
+
+  $query = new WP_Query($args);
+
+  ob_start();
+
+  if ($query->have_posts()) :
+    while ($query->have_posts()) : $query->the_post();
+      get_template_part('templates_part/photo-block');
+    endwhile;
+  endif;
+
+  wp_reset_postdata();
+
+  echo ob_get_clean();
+  wp_die();
+}
+
 
 ?>
 

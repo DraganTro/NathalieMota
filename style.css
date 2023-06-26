@@ -173,11 +173,13 @@ header img {
 /* Styles pour la section héros */
 .hero {
   height: 50vw;
+  width: auto;
+  margin-bottom: 5%;
   
 }
 
 .hero-photo {
-  height: 50vw;
+  
   
 }
 
@@ -185,6 +187,7 @@ header img {
   width: 100%;
   height: 50vw;
   object-fit: cover;
+  
 }
 
 .hero h1 {

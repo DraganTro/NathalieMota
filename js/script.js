@@ -40,3 +40,53 @@ jQuery(document).ready(function($) {
     });
   });
 });
+
+// Fonction des filtres et tri pour la recherche
+jQuery(document).ready(function($) {
+  // Gérer le changement de filtre de catégorie
+  $('#category-filter').change(function() {
+    var category = $(this).val();
+    var format = $('#format-select').val();
+    var sortOrder = $('#date-select').val();
+
+    filterPhotos(category, format, sortOrder);
+  });
+
+  // Gérer le changement de filtre de format
+  $('#format-select').change(function() {
+    var category = $('#category-filter').val();
+    var format = $(this).val();
+    var sortOrder = $('#date-select').val();
+
+    filterPhotos(category, format, sortOrder);
+  });
+
+  // Gérer le changement du tri de date
+  $('#date-select').change(function() {
+    var category = $('#category-filter').val();
+    var format = $('#format-select').val();
+    var sortOrder = $(this).val();
+
+    filterPhotos(category, format, sortOrder);
+  });
+
+  function filterPhotos(category, format, sortOrder) {
+    $.ajax({
+      url: my_script_vars.ajaxurl,
+      type: 'POST',
+data: {
+        action: 'filter_photos',
+        category: category,
+        format: format,
+        sortOrder: sortOrder
+      },
+      success: function(response) {
+        $('.photo-grid').html(response);
+      },
+      error: function(xhr, ajaxOptions, thrownError) {
+        console.log(thrownError);
+      }
+    });
+  }
+});
+
