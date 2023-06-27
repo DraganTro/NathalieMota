@@ -3,6 +3,7 @@
 
 <?php get_header(); ?>
 
+
 <div class="photo-info-container">
   <div class="photo-info-left">
     <h1><?php the_title(); ?></h1>
@@ -20,7 +21,8 @@
     <div class="photo-info-interest">
       <p>Cette photo vous intéresse ?</p>
     </div>
-    <button id="contactBtn" data-photo-ref="<?php the_field('reference'); ?>">Contact</button>
+    
+    <button id="contactBtn" class="photo-contact-btn open-contact-modal" data-photo-ref="<?php the_field('reference'); ?>">Contact</button>
 
     <div class="photo-info-nav-block">
 

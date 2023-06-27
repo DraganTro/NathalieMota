@@ -23,9 +23,9 @@ get_header();
 
 <section class="photo-catalog">
   <div class="filters">
-    <label for="category-filter">Catégorie</label>
+    <label for="category-filter"></label>
     <select name="category-filter" id="category-filter">
-      <option value="">Toutes les catégories</option>
+      <option value="">Catégories</option>
       <?php
         $categories = get_terms(array(
           'taxonomy' => 'categorie',
@@ -40,9 +40,9 @@ get_header();
       <?php endforeach; ?>
     </select>
 
-    <label for="format-select">Filtrer par format :</label>
+    <label for="format-select"></label>
     <select name="format-select" id="format-select">
-      <option value="">Tous les formats</option>
+      <option value="">Formats</option>
       <?php
         $formats = get_terms(array(
           'taxonomy' => 'format',
@@ -56,8 +56,9 @@ get_header();
       <?php endforeach; ?>
     </select>
 
-    <label for="date-select">Trier par date :</label>
+    <label for="date-select"></label>
     <select name="date-select" id="date-select">
+      <option value="">Trier par</option>
       <option value="DESC" <?php selected('DESC', isset($_GET['date']) ? $_GET['date'] : 'DESC'); ?>>Plus récentes en premier</option>
       <option value="ASC" <?php selected('ASC', isset($_GET['date']) ? $_GET['date'] : ''); ?>>Plus anciennes en premier</option>
     </select>

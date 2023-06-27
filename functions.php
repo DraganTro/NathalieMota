@@ -25,7 +25,7 @@ add_action( 'init', 'register_my_menus' );
 
 // Ajout de la modale au menu
 function add_contact_modal_to_menu( $items, $args ) {
-  $contact_modal = '<li><a id="contactBtn">Contact</a></li>';
+  $contact_modal = '<li><a id="contactBtn" class="open-contact-modal menu-link-contact">Contact</a></li>';
   if ( $args->theme_location == 'primary' ) {
     $items = $items . $contact_modal;
   }

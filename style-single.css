@@ -1,10 +1,13 @@
+
+
 .photo-info-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: normal;
-    margin: 0 6vw;
+    margin: 2em 6vw 0 6vw;
     border-bottom: #333 1px solid;
+    
   }
   
   .photo-info-left {
@@ -16,10 +19,19 @@
 
   .photo-info-left h1 {
     text-transform: uppercase;
+    font-size: 40px;
+    font-style: italic;
+    font-weight: 400;
+    width: 10vw;
+  }
+
+  .photo-info-left p a, .photo-info-left p {
+    text-decoration: none;
+    color: #000;
+    text-transform: uppercase;
   }
   
   .photo-info-right {
-    
     position: relative;
     box-sizing: border-box;
   }

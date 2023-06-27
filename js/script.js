@@ -1,26 +1,46 @@
-// Récupérer la modale et le bouton pour l'ouvrir
-var modal = document.getElementById("contactModal");
-var btn = document.getElementById("contactBtn");
+jQuery(document).ready(function($) {
+  // Récupérer la modale et les éléments pour l'ouvrir
+  var modal = $("#contactModal");
+  var btn = $(".open-contact-modal");
+  var menuLink = $(".menu-link-contact");
 
-// Récupérer l'élément <span> qui permet de fermer la modale
-var span = document.getElementsByClassName("close")[0];
+  // Récupérer l'élément <span> qui permet de fermer la modale
+  var span = $(".close");
 
-// Quand l'utilisateur clique sur le bouton, ouvrir la modale 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+  // Quand l'utilisateur clique sur le bouton, ouvrir la modale
+  btn.click(function() {
+    // Récupérer la valeur du champ "RÉF. PHOTO"
+    var photoRef = $(this).data('photo-ref');
 
-// Quand l'utilisateur clique sur <span> (x), fermer la modale
-span.onclick = function() {
-  modal.style.display = "none";
-}
+    // Préremplir automatiquement le champ "RÉF. PHOTO" dans le formulaire de contact
+    modal.find('input[name="ref-photo"]').val(photoRef);
 
-// Quand l'utilisateur clique en dehors de la modale, fermer la modale
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+    // Afficher la modale
+    modal.show();
+  });
+
+  // Quand l'utilisateur clique sur le lien du menu, ouvrir la modale
+  menuLink.click(function(event) {
+    event.preventDefault(); // Empêcher le lien de naviguer vers une autre page
+
+    // Afficher la modale
+    modal.show();
+  });
+
+  // Quand l'utilisateur clique sur <span> (x), fermer la modale
+  span.click(function() {
+    modal.hide();
+  });
+
+  // Quand l'utilisateur clique en dehors de la modale, fermer la modale
+  $(window).click(function(event) {
+    if (event.target === modal[0]) {
+      modal.hide();
+    }
+  });
+});
+
+
 
 // Fonction charger plus
 jQuery(document).ready(function($) {
@@ -89,4 +109,20 @@ data: {
     });
   }
 });
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
 
