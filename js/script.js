@@ -41,7 +41,6 @@ jQuery(document).ready(function($) {
 });
 
 
-
 // Fonction charger plus
 jQuery(document).ready(function($) {
   var offset = 12;
@@ -60,6 +59,7 @@ jQuery(document).ready(function($) {
     });
   });
 });
+
 
 // Fonction des filtres et tri pour la recherche
 jQuery(document).ready(function($) {

@@ -5,20 +5,33 @@
 
 get_header();
 ?>
-
+<!-- Hero avec photo aléatoire -->
 <section class="hero">
-    <div class="hero-photo">
-        <?php
-        $featured_image_url = get_random_catalog_image_url();
+  <div class="hero-photo">
+    <?php
+    $featured_image_url = get_random_catalog_image_url();
 
-        if ( $featured_image_url ) {
-            ?>
-            <img src="<?php echo esc_url( $featured_image_url ); ?>" alt="Featured Image">
-            <?php
-        }
+    if ( $featured_image_url ) {
+      $image_id = attachment_url_to_postid( $featured_image_url );
+      $metadata = wp_get_attachment_metadata( $image_id );
+
+      if ( $metadata['height'] <= $metadata['width'] ) {
+        $image_src = wp_get_attachment_image_src( $image_id, 'large' );
         ?>
-    </div>
-    
+        <img src="<?php echo esc_url( $image_src[0] ); ?>" alt="Featured Image">
+        <?php
+      } else {
+        // Si l'image est en format portrait, on récupère une autre image aléatoire
+        $featured_image_url = get_random_catalog_image_url();
+        $image_id = attachment_url_to_postid( $featured_image_url );
+        $image_src = wp_get_attachment_image_src( $image_id, 'large' );
+        ?>
+        <img src="<?php echo esc_url( $image_src[0] ); ?>" alt="Featured Image">
+        <?php
+      }
+    }
+    ?>
+  </div>
 </section>
 
 <section class="photo-catalog">

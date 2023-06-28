@@ -38,7 +38,7 @@ header {
 }
 
 .logo {
-    margin-left: 5em;
+    margin-left: 9vw;
     margin-top: 2em;
 }
 
@@ -55,7 +55,7 @@ header img {
 }
 
 .primary-menu li {
-    margin-right: 5em;
+    margin-right: 9vw;
 }
 
 .primary-menu a {
@@ -169,22 +169,21 @@ header img {
 
   /* Style front page */
 
-  
-
 
 /* Styles pour la section héros */
-.hero {
+.hero-photo {
   height: 50vw;
+  max-height: 50vw;
   width: auto;
   margin-bottom: 5%;
-  
+  background-size: 50%;
+  background-position: center;
 }
 
 .hero-photo img {
   width: 100%;
   height: 50vw;
   object-fit: cover;
-  
 }
 
 .hero h1 {
@@ -296,10 +295,9 @@ header img {
   display: block;
   width: 15vw;
   margin: 2em auto 2em auto;
-  
   padding: 12px 16px;
   border: none;
-  border-radius: 4px;
+  border-radius: 2px;
   background-color: #d8d8d8;
   color: #000;
   cursor: pointer;
@@ -309,4 +307,21 @@ header img {
 #load-more:hover {
   background-color: #000;
   color: #fff;
+}
+
+
+/* Style page d'archive */
+
+.page-header .page-title {
+  margin: 3vw 0 5vw 9vw;
+}
+
+.type-photos a img {
+  width: 40vw;
+  height: 40vw;
+  object-fit: cover;
+}
+
+.photo-grid-archive {
+  margin-bottom: 3vw;
 }

@@ -1,8 +1,4 @@
-
-
-
 <?php get_header(); ?>
-
 
 <div class="photo-info-container">
   <div class="photo-info-left">
@@ -14,9 +10,11 @@
     <p>Année : <?php the_field('annee'); ?></p>
   </div>
   <div class="photo-info-right">
-    <?php the_post_thumbnail('full'); ?>
-    <a class="fullscreen-link" href="<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>" data-lightbox="photo">Plein écran</a>
-  </div>
+  <?php the_post_thumbnail('full'); ?>
+  <a class="fullscreen-link" href="<?php echo wp_get_attachment_url(get_post_thumbnail_id()); ?>" data-lightbox="photo">
+    <span></span> 
+  </a>
+</div>
   <div class="photo-info-nav">
     <div class="photo-info-interest">
       <p>Cette photo vous intéresse ?</p>
@@ -61,11 +59,11 @@
         'post_type' => 'photos',
         'posts_per_page' => 2,
         'post__not_in' => array(get_the_ID()),
-        'category__in' => wp_get_post_categories(get_the_ID()),
+        'categorie' => get_the_terms(get_the_ID(), 'categorie')[0]->slug,
       );
-    
+      
       $query = new WP_Query($args);
-    
+      
       while ($query->have_posts()) {
         $query->the_post();
         ?>
@@ -76,7 +74,18 @@
       }
     ?>
   </div>
+
+ <!-- Bouton "Toutes les photos" -->
+ <div class="button-all-photo">
+ <?php
+    $current_category = get_the_terms(get_the_ID(), 'categorie')[0];
+    $all_photos_link = get_term_link($current_category);
+  ?>
+  <a href="<?php echo $all_photos_link; ?>" class="all-photos-button">Toutes les photos</a>
+    </div>
+
 </div>
+
 
 <?php get_template_part('templates_part/modal-contact'); ?>
 

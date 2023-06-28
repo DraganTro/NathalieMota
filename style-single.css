@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: normal;
-    margin: 2em 6vw 0 6vw;
+    margin: 2em 9vw 0 9vw;
     border-bottom: #333 1px solid;
     
   }
@@ -33,7 +33,6 @@
   
   .photo-info-right {
     position: relative;
-    box-sizing: border-box;
   }
   
   .photo-info-right img {
@@ -53,10 +52,18 @@
     border-radius: 5px;
     text-decoration: none;
     transition: all 0.3s ease;
+    opacity: 0;
   }
   
-  .fullscreen-link:hover {
-    background-color: rgba(0, 0, 0, 1);
+  .photo-info-right:hover .fullscreen-link {
+    opacity: 1;
+  }
+  
+  .fullscreen-link span:before {
+    content: "\e800"; /* Code Unicode pour l'icône plein écran */
+    font-family: 'icomoon';
+    font-size: 20px;
+    margin-right: 5px;
   }
   
   .photo-info-nav {
@@ -66,20 +73,30 @@
     width: 100vw;
     height: 118px;
     box-sizing: border-box;
-    margin-right: 3.5vw;
+    
   }
   
   
   .photo-info-nav #contactBtn {
     font-size: 16px;
+    font-family: 'Space Mono';
     border: none;
-    text-transform: uppercase;
+    border-radius: 2px;
     cursor: pointer;
     width: 20vw;
     height: 3vw;
     margin-right: 12vw;
     background-color: #D8D8D8;
+    transition: all 0.3s ease;
   }
+
+  .photo-info-nav #contactBtn:hover {
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  
   
   .photo-info-nav-prev {
     
@@ -100,8 +117,8 @@
   }
 
   .nav-thumbnail {
-    position: relative;
-    width: 7vw;
+    
+    width: 8vw;
     height: 6vw;
   }
   
@@ -113,6 +130,12 @@
     grid-template-columns: repeat(2, 1fr); 
     grid-gap: 1vw;
     margin: 2vw 9vw;
+}
+
+.related-photos h2 {
+  margin-left: 9vw;
+  margin-top: 5vw;
+  text-transform: uppercase;
 }
 
 .related-photos img {
@@ -133,6 +156,8 @@
 .photo-info-nav-next:hover .nav-thumbnail {
   display: block;
 }
+
+
   
   /* style bouton contact */
   .contact-link {
@@ -235,3 +260,29 @@
   .modal input[type="submit"]:hover {
     background-color: #222;
   }
+
+  /* Bouton toutes les photos */
+  .button-all-photo {
+    text-align: center;
+    margin: 1vw 0 5vw 0;
+  }
+
+  .all-photos-button {
+    display: inline-block;
+    padding: 15px 45px;
+    background-color: #D8D8D8;
+    color: #000;
+    text-decoration: none;
+    border-radius: 2px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  .all-photos-button:hover {
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+  }
+
+
+  

@@ -160,5 +160,21 @@ function filter_photos() {
 }
 
 
+
+function create_photo_post_type() {
+  register_post_type( 'photos',  
+    array(
+      'labels' => array(
+        'name'               => 'Photos',
+        'singular_name'      => 'Photo',
+        // ...
+      ),  
+      'has_archive' => 'photo',
+      'public'   => true,
+    )  
+  );
+}
+add_action( 'init', 'create_photo_post_type' );
+
 ?>
 
