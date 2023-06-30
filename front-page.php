@@ -32,6 +32,13 @@ get_header();
     }
     ?>
   </div>
+  <div class="title-hero">
+  <img
+    src="/wp-content/themes/NathalieMota/images/titre_header.png"
+    alt="Titre du hero"
+    
+    width="100%" />
+  </div>
 </section>
 
 <section class="photo-catalog">

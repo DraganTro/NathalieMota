@@ -111,11 +111,13 @@ data: {
 });
 
 
+// Détection du clic sur l'icone du menu burger
 
-
-  
-
-
+jQuery(document).ready(function($) {
+  $('.burger-icon').click(function() {
+    $('.mobile-menu').slideToggle();
+  });
+});
 
 
 

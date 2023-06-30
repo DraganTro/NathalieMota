@@ -18,6 +18,7 @@ function register_my_menus() {
   register_nav_menus(
     array(
       'primary-menu' => __( 'Primary Menu' ),
+      'mobile-menu' => __( 'Mobile Menu')
     )
   );
 }
@@ -175,6 +176,15 @@ function create_photo_post_type() {
   );
 }
 add_action( 'init', 'create_photo_post_type' );
+
+
+
+// Ajout lightbox.js
+function enqueue_lightbox_script() {
+  wp_enqueue_script( 'lightbox-script', get_template_directory_uri() . '/js/lightbox.js', array( 'jquery' ), '1.0', true );
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_lightbox_script' );
+
 
 ?>
 
