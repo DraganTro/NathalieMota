@@ -81,6 +81,10 @@ header img {
     .row-header {
         flex-direction: column;
     }
+    .logo {
+      margin: 1em 1em;
+    }
+    
 }
 
 /* Style Footer */
@@ -112,6 +116,13 @@ header img {
     height: 100%; /* Hauteur totale */
     overflow: auto; /* Activation défilement si nécessaire */
     background-color: rgba(0,0,0,0.4); /* Couleur de fond avec transparence */
+  }
+
+  @media screen and (max-width: 767px) {
+    .modal {
+      z-index: 11;
+      
+    }
   }
   
   /* Le contenu de la modale */
@@ -179,17 +190,14 @@ header img {
 
 /* Styles pour la section héros */
 .hero-photo {
-  height: 50vw;
-  max-height: 50vw;
+  height: 70vw;
   width: auto;
   margin-bottom: 5%;
-  background-size: 50%;
-  background-position: center;
 }
 
 .hero-photo img {
   width: 100%;
-  height: 50vw;
+  height: 70vw;
   object-fit: cover;
 }
 
@@ -202,10 +210,14 @@ header img {
 @media screen and (max-width: 768px) {
   .title-hero {
     position: absolute;
-    top: 50vw;
+    top: 40vw;
     left: 10vw;
     display: block;
     width: 80vw;
+  }
+  .title-hero img {
+    position: absolute;
+    z-index: 0;
   }
 }
 
@@ -222,6 +234,30 @@ header img {
   max-width: 100vw; /* limite la largeur de la grille à la largeur de l'écran */
   list-style: none;
   margin: 0 9vw;
+}
+
+@media screen and (max-width: 767px) {
+  .photo-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .photo {
+    margin-top: 1em;
+  }
+  #load-more {
+    width: 40vw!important;
+  }
+  .footer-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: inherit; 
+  }
+  .footer-menu li {
+    margin-bottom: 1em;
+  }
+  .photo-grid .photo {
+    height: 70vw;
+  }
   
 }
 
@@ -229,8 +265,6 @@ header img {
   position: relative;
   height: 35vw;
   overflow: hidden;
-  
-  
 }
 
 .photo img {
@@ -312,6 +346,21 @@ header img {
   margin-left: 20vw;
 }
 
+select option:hover {
+  background-color: #e00000;
+}
+
+@media screen and (max-width: 767px) {
+  .filters select {
+    width: 11em;
+    height: 5vw;
+    font-size: 10px;
+  }
+  #date-select {
+    margin-left: 2vw;
+  }
+}
+
 /* Styles pour le bouton "Charger plus" */
 #load-more {
   display: block;
@@ -370,13 +419,13 @@ header img {
 .hamburger {
   display: none;
   position: absolute;
-  top: 5em;
+  
   right: 5%;
   margin-left: -2em;
-  margin-top: -45px;
-  width: 2em;
-  height: 45px;
-  z-index: 10;
+  margin-top: -15vw;
+  width: 7vw;
+  height: 15vw;
+  z-index: 14;
 }
 
 .hamburger div {
@@ -406,7 +455,7 @@ header img {
 Nav Styles
 **/
 .nav {
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 100%;
   background-color: #e00000;
@@ -414,6 +463,8 @@ Nav Styles
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   transform: scale(0);
+  margin-top: 13vw;
+  z-index: 10;
 }
 .nav-wrapper {
   position: relative;
@@ -423,7 +474,7 @@ Nav Styles
 }
 nav {
   text-align: left;
-  margin-left: 25%;
+  margin-left: 20%;
 }
 nav a {
   position: relative;

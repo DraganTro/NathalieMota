@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <div class="photo-info-container">
+  <div class="photo-container">
   <div class="photo-info-left">
     <h1><?php the_title(); ?></h1>
     <p>Référence : <?php the_field('reference'); ?></p>
@@ -14,6 +15,7 @@
   <a class="fullscreen-link" href="<?php echo wp_get_attachment_url(get_post_thumbnail_id()); ?>" data-lightbox="photo">
     <span></span> 
   </a>
+</div>
 </div>
   <div class="photo-info-nav">
     <div class="photo-info-interest">

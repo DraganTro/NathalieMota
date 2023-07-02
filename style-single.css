@@ -1,12 +1,27 @@
 
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+}
 
-.photo-info-container {
+  .photo-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: normal;
     margin: 2em 9vw 0 9vw;
-    border-bottom: #333 1px solid;
+  }
+
+  @media screen and (max-width: 767px) {
+    .photo-info-container {
+      display: flex;
+      flex-direction: column;
+    }
+    .photo-container {
+      display: flex;
+      flex-direction: column-reverse;
+      align-content: center;
+    }
   }
 
   header {
@@ -25,7 +40,7 @@
     font-size: 40px;
     font-style: italic;
     font-weight: 400;
-    width: 10vw;
+    width: 11vw;
   }
 
   .photo-info-left p a, .photo-info-left p {
@@ -43,6 +58,44 @@
     width: 40vw;
     height: auto;
     object-fit: cover;
+  }
+
+  @media screen and (max-width: 767px) {
+    .photo-info-right {
+      width: auto;
+    }
+    .photo-info-right img {
+      width: 80vw;
+    }
+    .photo-info-left {
+      align-self: flex-start;
+      border-bottom: none;
+      
+    }
+    .photo-info-nav {
+      justify-content: flex-start!important;
+      align-items: flex-start!important;
+      flex-direction: column;
+      border-top: black 1px solid;
+    }
+    .photo-info-nav-block {
+      display: none!important;
+    }
+    .photo-info-nav #contactBtn {
+      width: 80vw!important;
+      height: 10vw!important;
+    }
+    .button-all-photo {
+      display: none;
+    }
+    .related-block-photos {
+      grid-template-columns: repeat(1, 1fr)!important;
+      width: auto;
+    }
+    .related-block-photos a img {
+      width: -webkit-fill-available;
+      height: 70vw;
+    }
   }
   
   .fullscreen-link {
@@ -71,12 +124,12 @@
   
   .photo-info-nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
     height: 118px;
     box-sizing: border-box;
-    
+    align-items: center;
+    margin: 0 9vw;
+    justify-content: space-between;
+    border-bottom: black 1px solid;
   }
   
   
@@ -109,9 +162,19 @@
   }
 
   .nav-thumbnail {
-    
+    position: absolute;
+    bottom: -2vw;
+    transform: translate(-50%, -50%);
     width: 8vw;
     height: 6vw;
+  }
+
+  .photo-info-nav-prev {
+    position: relative;
+  }
+
+  .photo-info-nav-next {
+    position: relative;
   }
   
 
