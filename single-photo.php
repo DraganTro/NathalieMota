@@ -31,7 +31,7 @@
       <div class="thumbnail-previous">
       <?php $prev_post = get_previous_post(); ?>
       <?php if ($prev_post) : ?>
-        <img class="nav-thumbnail" src="<?php echo wp_get_attachment_image_url( get_post_thumbnail_id($prev_post->ID), 'thumbnail' ); ?>" alt="<?php echo $prev_post->post_title; ?>">
+        <img class="nav-thumbnail-prev" src="<?php echo wp_get_attachment_image_url( get_post_thumbnail_id($prev_post->ID), 'thumbnail' ); ?>" alt="<?php echo $prev_post->post_title; ?>">
       <?php endif; ?>
       </div>
       <?php previous_post_link('%link', '<img src="/wp-content/themes/NathalieMota/images/arrow_left.svg" alt="Précédent">', FALSE, '', 'format'); ?>
@@ -42,7 +42,7 @@
       <div class="thumbnail-next">
       <?php $next_post = get_next_post(); ?>
       <?php if ($next_post) : ?>
-        <img class="nav-thumbnail" src="<?php echo wp_get_attachment_image_url( get_post_thumbnail_id($next_post->ID), 'thumbnail' ); ?>" alt="<?php echo $next_post->post_title; ?>">
+        <img class="nav-thumbnail-next" src="<?php echo wp_get_attachment_image_url( get_post_thumbnail_id($next_post->ID), 'thumbnail' ); ?>" alt="<?php echo $next_post->post_title; ?>">
       <?php endif; ?>
       </div>
       <?php next_post_link('%link', '<img src="/wp-content/themes/NathalieMota/images/arrow_right.svg" alt="Suivant">', FALSE, '', 'format'); ?>
