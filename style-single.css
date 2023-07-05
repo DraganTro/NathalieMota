@@ -96,31 +96,12 @@ body {
       width: -webkit-fill-available;
       height: 70vw;
     }
+    .photo {
+      height: 70vw;
+    }
   }
   
-  .fullscreen-link {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    opacity: 0;
-  }
   
-  .photo-info-right:hover .fullscreen-link {
-    opacity: 1;
-  }
-  
-  .fullscreen-link span:before {
-    content: "\e800"; /* Code Unicode pour l'icône plein écran */
-    font-family: 'icomoon';
-    font-size: 20px;
-    margin-right: 5px;
-  }
   
   .photo-info-nav {
     display: flex;
@@ -217,10 +198,10 @@ body {
 }
 
 .related-photos img {
-    width: 40vw;
+    width: 41vw;
     height: 40vw;
     object-fit: cover;
-    margin-top: 1vw;
+    
 }
 
 

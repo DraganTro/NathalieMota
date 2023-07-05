@@ -345,15 +345,14 @@ header img {
   height: 3em;
   text-transform: uppercase;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 #date-select {
   margin-left: 20vw;
 }
 
-select option:hover {
-  background-color: #e00000;
-}
+
 
 @media screen and (max-width: 767px) {
   .filters select {
@@ -489,10 +488,84 @@ select option:hover {
 .lightbox-content img {
   display: block;
   max-width: 100%;
-  max-height: 100%;
+  max-height: calc(100vh - 120px);
   margin: auto;
 }
 
+/* Lightbox navigation arrows */
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  
+}
+
+.prev-photo,
+.next-photo {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  line-height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.prev-photo:hover,
+.next-photo:hover {
+  color: #ccc;
+}
+.prev-photo {
+  left: 2vw;
+  flex-direction: row-reverse;
+}
+.prev-photo .fa-solid {
+  margin-right: 1em;
+}
+.next-photo {
+  right: 2vw;
+}
+.next-photo .fa-solid {
+  margin-left: 1em;
+}
+
+.close-lightbox {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 25px;
+  color: white;
+  text-decoration: none;
+}
+
+.close-lightbox:hover {
+  color: #ccc;
+}
+
+.fa-times:before {
+  content: "\f00d";
+}
+
+.photo-details {
+  margin-top: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  text-transform: uppercase;
+}
+
+.photo-reference {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.photo-category {
+  font-size: 14px;
+  color: #FFFFFF;
+  margin-bottom: 0;
+}
 
 
 /* Menu burger */

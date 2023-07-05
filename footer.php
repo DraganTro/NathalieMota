@@ -17,20 +17,31 @@
     </div>
 </footer>
 
-<?php if ( is_singular( 'photos' ) ) : ?>
+<?php if (isset($_GET['image_url'])) : ?>
   <div id="lightbox" class="lightbox">
     <div class="lightbox-content">
-      <img src="<?php echo wp_get_attachment_image_url( get_the_ID(), 'full' ); ?>" alt="<?php the_title(); ?>">
+      <img src="<?php echo esc_url($_GET['image_url']); ?>" alt="<?php the_title(); ?>">
+      <div class="photo-details">
+        
+      </div>
+      <a href="#" class="prev-photo"><span>Précédente</span><i class="fa-solid fa-arrow-left"></i></a>
+      <a href="#" class="next-photo"><span>Suivante</span><i class="fa-solid fa-arrow-right"></i></a>
+      <a href="#" class="close-lightbox"><i class="fa-solid fa-xmark"></i></a>
     </div>
   </div>
 <?php endif; ?>
 
-<?php
-function mytheme_enqueue_scripts() {
-  wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/js/lightbox.js', array('jquery'), '1.0', true );
-}
-add_action( 'wp_enqueue_scripts', 'mytheme_enqueue_scripts' );
-?>
+
+
+
+
+
+
+
+
+
+
+
 
 <?php wp_footer(); ?>
 </body>

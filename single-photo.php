@@ -12,7 +12,7 @@
   </div>
   <div class="photo-info-right">
   <?php the_post_thumbnail('full'); ?>
-  <a class="fullscreen-link" href="<?php echo wp_get_attachment_url(get_post_thumbnail_id()); ?>" data-lightbox="photo">
+  <a class="fullscreen-link" href="<?php echo wp_get_attachment_url(get_post_thumbnail_id()); ?>">
     <span></span> 
   </a>
 </div>
@@ -66,16 +66,16 @@
       
       $query = new WP_Query($args);
       
-      while ($query->have_posts()) {
-        $query->the_post();
-        ?>
-        <a href="<?php the_permalink(); ?>">
-          <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
-        </a>
-        <?php
-      }
+      if ( $query->have_posts() ) :
+        while ( $query->have_posts() ) : $query->the_post();
+          get_template_part( 'templates_part/photo-block' );
+        endwhile;
+      endif;
+      
+      wp_reset_postdata();
     ?>
   </div>
+</div>
 
  <!-- Bouton "Toutes les photos" -->
  <div class="button-all-photo">

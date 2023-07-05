@@ -161,7 +161,7 @@ function filter_photos() {
 }
 
 
-
+// Page d'archive
 function create_photo_post_type() {
   register_post_type( 'photos',  
     array(
@@ -184,6 +184,12 @@ function enqueue_lightbox_script() {
   wp_enqueue_script( 'lightbox-script', get_template_directory_uri() . '/js/lightbox.js', array( 'jquery' ), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_lightbox_script' );
+
+
+
+
+
+
 
 
 ?>

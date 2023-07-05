@@ -1,4 +1,4 @@
-<li class="photo">
+<li class="photo" data-reference="<?php echo esc_attr( get_field( 'reference' ) ); ?>" data-categorie="<?php echo get_the_terms($post->ID, 'categorie')[0]->name; ?>">
   <a href="<?php the_permalink(); ?>">
     <?php the_post_thumbnail( 'photos' ); ?>
     <div class="photo-overlay">

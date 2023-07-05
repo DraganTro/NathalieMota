@@ -4,7 +4,36 @@
  */
 
 get_header();
+
+$cat_slug = isset($_GET['category']) ? $_GET['category'] : '';
+$ref_slug = isset($_GET['reference']) ? $_GET['reference'] : '';
+
+$args = array(
+    'post_type' => 'photos',
+    'posts_per_page' => 12,
+    'meta_query' => array()
+);
+
+if (!empty($cat_slug)) {
+    $args['meta_query'][] = array(
+        'key' => 'categorie',
+        'value' => $cat_slug,
+        'compare' => '=',
+    );
+}
+
+if (!empty($ref_slug)) {
+    $args['meta_query'][] = array(
+        'key' => 'reference',
+        'value' => $ref_slug,
+        'compare' => '=',
+    );
+}
+
+$query = new WP_Query( $args );
+
 ?>
+
 <!-- Hero avec photo aléatoire -->
 <section class="hero">
   <div class="hero-photo">
@@ -54,7 +83,7 @@ get_header();
 
         foreach ($categories as $category) :
       ?>
-      <option value="<?php echo $category->slug; ?>" <?php selected($category->slug, isset($_GET['category']) ? $_GET['category'] : ''); ?>>
+      <option value="<?php echo $category->slug; ?>" <?php selected($category->slug, $cat_slug); ?>>
         <?php echo $category->name; ?>
       </option>
       <?php endforeach; ?>
@@ -86,11 +115,6 @@ get_header();
 
   <div class="photo-grid">
     <?php
-      $args = array(
-        'post_type' => 'photos',
-        'posts_per_page' => 12,
-      );
-      $query = new WP_Query( $args );
       if ( $query->have_posts() ) :
         while ( $query->have_posts() ) : $query->the_post();
           get_template_part( 'templates_part/photo-block' );
