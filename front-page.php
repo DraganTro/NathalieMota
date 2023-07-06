@@ -74,7 +74,7 @@ $query = new WP_Query( $args );
   <div class="filters">
     <label for="category-filter"></label>
     <select name="category-filter" id="category-filter">
-      <option value="">Catégories</option>
+      <option class="select-option" value="">Catégories</option>
       <?php
         $categories = get_terms(array(
           'taxonomy' => 'categorie',

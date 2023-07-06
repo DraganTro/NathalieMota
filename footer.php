@@ -21,8 +21,7 @@
   <div id="lightbox" class="lightbox">
     <div class="lightbox-content">
       <img src="<?php echo esc_url($_GET['image_url']); ?>" alt="<?php the_title(); ?>">
-      <div class="photo-details">
-        
+      <div class="photo-details"> 
       </div>
       <a href="#" class="prev-photo"><span>Précédente</span><i class="fa-solid fa-arrow-left"></i></a>
       <a href="#" class="next-photo"><span>Suivante</span><i class="fa-solid fa-arrow-right"></i></a>
