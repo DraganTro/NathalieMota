@@ -534,14 +534,14 @@ header img {
   color: #ccc;
 }
 .prev-photo {
-  left: 2vw;
+  left: -3vw;
   flex-direction: row-reverse;
 }
 .prev-photo .fa-solid {
   margin-right: 1em;
 }
 .next-photo {
-  right: 2vw;
+  right: -3vw;
 }
 .next-photo .fa-solid {
   margin-left: 1em;
