@@ -186,10 +186,25 @@ function enqueue_lightbox_script() {
 add_action( 'wp_enqueue_scripts', 'enqueue_lightbox_script' );
 
 
+// Ajout du plugin Select2
 
+function theme_enqueue_scripts() {
 
+  wp_enqueue_style( 
+    'select2',  
+    'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css' 
+  );
 
+  wp_enqueue_script( 
+    'select2',  
+    'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', 
+    array('jquery'), 
+    '4.1.0-rc.0', 
+    true 
+   );
 
+}
+add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
 
 
 ?>

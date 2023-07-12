@@ -120,11 +120,26 @@ jQuery(document).ready(function($) {
 });
 
 
+// Initialisation de Select2 pour modifier la couleur des selects
+
+jQuery(document).ready(function($) {
+  $('#category-filter, #format-select, #date-select').select2(); 
+});
 
 
+jQuery(document).ready(function($) {
+  // Sélectionnez le troisième champ select
+  var $thirdSelect = $('#date-select');
 
+  // Ajoutez une classe CSS personnalisée au conteneur Select2 du troisième select
+  $thirdSelect.next('.select2-container').addClass('date-select-container');
 
-
+  // Déplacez le champ select vers la droite en ajoutant des styles CSS à la classe personnalisée
+  $('.date-select-container .select2-selection').css({
+    'float': 'right',
+    'width': '100%'
+  });
+});
 
 
 

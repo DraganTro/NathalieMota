@@ -4,13 +4,13 @@ body {
   margin: 0 auto;
 }
 
-  .photo-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: normal;
-    margin: 2em 9vw 0 9vw;
-  }
+.photo-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: normal;
+  margin: 2em 9vw 0 9vw;
+}
 
   @media screen and (max-width: 767px) {
     .photo-info-container {
@@ -101,8 +101,6 @@ body {
     }
   }
   
-  
-  
   .photo-info-nav {
     display: flex;
     height: 118px;
@@ -112,7 +110,6 @@ body {
     justify-content: space-between;
     border-bottom: black 1px solid;
   }
-  
   
   .photo-info-nav #contactBtn {
     font-size: 16px;
@@ -139,7 +136,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-
   }
 
     /* Style miniature photo suivante ou précédente */
@@ -153,7 +149,6 @@ body {
   .photo-info-nav-next:hover .nav-thumbnail-next {
     display: block;
   }
-
 
   .nav-thumbnail-prev {
     position: absolute;
@@ -184,11 +179,11 @@ body {
 
   /* Photos apparentées */
 
-  .related-block-photos {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    grid-gap: 1vw;
-    margin: 2vw 9vw;
+.related-block-photos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  grid-gap: 1vw;
+  margin: 2vw 9vw;
 }
 
 .related-photos h2 {
@@ -201,12 +196,8 @@ body {
     width: 41vw;
     height: 40vw;
     object-fit: cover;
-    
 }
-
-
-
-  
+ 
   /* style bouton contact */
   .contact-link {
     display: inline-block;
@@ -223,8 +214,6 @@ body {
     background-color: #222;
   }
   
-  
-
   /* Bouton toutes les photos */
   .button-all-photo {
     text-align: center;

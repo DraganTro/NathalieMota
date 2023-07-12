@@ -1,6 +1,3 @@
-<!-- Ajoutez le contenu du pied de page ici -->
-
-
 <?php get_template_part( 'templates_part/modal-contact' ); ?>
 
 <footer>
