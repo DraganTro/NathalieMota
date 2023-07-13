@@ -723,14 +723,14 @@ Animations
 }
 }
 
-/* Vie privée */
-.priv-policy {
-  margin: 10vw 10vw;
-  width: 80vw;
+/* Vie privée - Page perso */
+.page-template .site-main {
+  margin: 5vw 10vw;
   display: block;
 }
-.privacy-policy header, .archive .container-header {
-  box-shadow: 0 6px 4px rgba(0, 0, 0, 0.05);  
+.page-template .container-header, .archive .container-header, .blog .container-header {
+box-shadow: 0 6px 4px rgba(0,0,0,.05);
 }
-
-
+.entry-title {
+  margin-bottom: 5vw;
+}
