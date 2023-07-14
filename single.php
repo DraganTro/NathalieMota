@@ -3,7 +3,7 @@
  * Template pour l'affichage d'un article
  */
 
-get_header(); // inclus le fichier header.php de votre thème
+get_header(); // inclus le fichier header.php du thème
 
 // Boucle WordPress pour afficher le contenu de l'article
 if ( have_posts() ) :
@@ -20,8 +20,8 @@ if ( have_posts() ) :
               get_the_time()
             );
           ?>
-        </div><!-- .entry-meta -->
-      </header><!-- .entry-header -->
+        </div>
+      </header>
 
       <?php if ( has_post_thumbnail() ) : ?>
         <div class="post-thumbnail">
@@ -38,7 +38,7 @@ if ( have_posts() ) :
             'after'  => '</div>',
           ) );
         ?>
-      </div><!-- .entry-content -->
+      </div>
 
       <?php if ( comments_open() || get_comments_number() ) : ?>
         <div class="comments-area">
@@ -50,5 +50,5 @@ if ( have_posts() ) :
   endwhile;
 endif;
 
-get_footer(); // inclus le fichier footer.php de votre thème
+get_footer(); // inclus le fichier footer.php du thème
 

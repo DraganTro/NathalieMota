@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+<!-- Template Name: Ma page single-photo personnalisée -->
+
 <div class="photo-info-container">
   <div class="photo-container">
   <div class="photo-info-left">
