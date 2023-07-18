@@ -197,6 +197,11 @@ body {
     height: 40vw;
     object-fit: cover;
 }
+
+.photo-info-interest p {
+  font-family: 'Poppins';
+  font-weight: 300;
+}
  
   /* style bouton contact */
   .contact-link {
@@ -208,6 +213,11 @@ body {
     border-radius: 5px;
     text-decoration: none;
     transition: all 0.3s ease;
+  }
+
+  .photo-info-nav #contactBtn {
+    font-size: 14px;
+    font-weight: 400;
   }
   
   .contact-link:hover {
@@ -227,7 +237,7 @@ body {
     color: #000;
     text-decoration: none;
     border-radius: 2px;
-    font-size: 14px;
+    font-size: 12px;
     transition: all 0.3s ease;
   }
   
