@@ -43,22 +43,25 @@ jQuery(document).ready(function($) {
 
 // Fonction charger plus
 jQuery(document).ready(function($) {
-  var offset = 12;
+  var offset = 12; // Définit l'offset initial à 12 (index à partir duquel charger les photos supplémentaires)
+
+  // Attache un gestionnaire d'événement 'click' au bouton avec l'ID 'load-more'
   $('#load-more').click(function() {
     $.ajax({
-      url: my_script_vars.ajaxurl,
-      type: 'POST',
+      url: my_script_vars.ajaxurl, // URL de la requête AJAX
+      type: 'POST', // Méthode de la requête AJAX
       data: {
-        action: 'load_more_photos',
-        offset: offset,
+        action: 'load_more_photos', // Action à exécuter dans la fonction PHP
+        offset: offset, // Valeur de l'offset à envoyer dans la requête
       },
       success: function(response) {
-        $('.photo-grid').append(response);
-        offset += 12;
+        $('.photo-grid').append(response); // Ajoute la réponse (les photos) à l'élément avec la classe '.photo-grid'
+        offset += 12; // Augmente l'offset de 12 pour les prochains chargements (12 photos à chaque fois)
       }
     });
   });
 });
+
 
 
 // Fonction des filtres et tri pour la recherche
